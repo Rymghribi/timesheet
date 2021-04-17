@@ -37,7 +37,7 @@ public class EmployeServiceImplTest {
 	@Test
 	public void testAddEmploye()  {
 		
-		Employe em = new Employe("gaied", "med", "gaied@esprit.tn", "123456", Role.ADMINISTRATEUR); 
+		Employe em = new Employe("ghribi", "rym", "ghribi.rym@esprit.tn", "123456", Role.ADMINISTRATEUR); 
 		Employe employeAdded = us.addEmploye(em); 
 		assertEquals(em.getPrenom(),employeAdded.getNom());
 	}
