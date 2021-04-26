@@ -30,18 +30,28 @@ public class EmployeServiceImpl implements IEmployeService {
 	
 
 	@Override
-	public void deleteEmployeById(int employeId){
+	public int deleteEmployeById(int employeId)
+	{
+		l.debug("methode deleteEmployeById ");
 		
-		Employe employe = emRepo.findById(employeId).get();
-		
+		try {
+		Employe employe = emRepo.findById(employeId).orElse(null);
+
 		emRepo.delete(employe);
-		
+		return -1;}
+		catch (Exception e) {
+			l.error("erreur methode deleteEmpolyeById : " +e);
+			return 0;
+		}	
 	}
 
 	@Override
 	public Employe updateEmploye(Employe em) {
-		return emRepo.save(em);
+		l.info("In  addEmploye : " + em);
 		
+		
+		l.info("Out of  addEmploye. ");
+		return emRepo.save(em);
 	}
 
 	@Override
@@ -70,20 +80,16 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	@Override
-	public List<Employe> retrieveEmployesByRole(Role role) {
+	public Employe getEmployeeById(int employeId) {
+		l.debug("methode getEmployeById ");
 		
-		return emRepo.retrieveEmployesByRole(role);
-	}
+			Employe et= emRepo.findById(employeId).orElse(null);
+			l.debug("getEmployeById fini avec succes ");
+			return et;
+		
+		}
 
-	@Override
-	public String getEmployePrenomById(int employeId) {
-		l.info("in  retrieveEmploye id = " + employeId);
-		Employe emp = emRepo.findById(employeId).get();
-		l.info("Employe returned : " + emp);
-		return emp.getPrenom();
-	}
-		
-	}
+}
 
 	
 

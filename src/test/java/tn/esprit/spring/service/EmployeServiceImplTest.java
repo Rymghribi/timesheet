@@ -1,5 +1,5 @@
 
-package tn.esprit.spring;
+package tn.esprit.spring.service;
 
 
 
@@ -7,12 +7,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.text.ParseException;
 import java.util.List;
-
-
-
-
-
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,21 +26,39 @@ public class EmployeServiceImplTest {
 	
 	@Autowired 
 	IEmployeService us;
+	Integer Em;
 	
+	@Test
+	public void testGetEmployeById() {
+		Employe e =us.getEmployeeById(8); 
+		assertEquals(8, e.getId());
+	}
 	
+	@Test
+	public void testDeleteEmployeById()
+	{
+		if(Em!=null){
+		int i = us.deleteEmployeById(Em);
+		
+		assertEquals(0, i);}
+		else {
+			int i = us.deleteEmployeById(8);
+			
+			assertEquals(0, i);}
+	}
 	@Test
 	public void testAddEmploye()  {
 		
 		Employe em = new Employe("ghribi", "rym", "ghribi.rym@esprit.tn", "123456", Role.ADMINISTRATEUR); 
 		Employe employeAdded = us.addEmploye(em); 
-		assertEquals(em.getPrenom(),employeAdded.getNom());
+		assertEquals(em.getNom(),employeAdded.getNom());
 	}
 	
 	@Test
 	public void testRetrieveAllEmployes() {
 		List<Employe> listEmployes = us.retrieveAllEmployes(); 
 		 
-		assertEquals(4, listEmployes.size());
+		assertEquals(16, listEmployes.size());
 	}
 
 	@Test
@@ -54,7 +66,7 @@ public class EmployeServiceImplTest {
 		
 		Employe u = new Employe("ghribi", "rym","modif@esprit.tn","rym01", Role.INGENIEUR); 
 		Employe userUpdated  = us.updateEmploye(u); 
-		assertEquals(u.getNom(), userUpdated.getPrenom());
+		assertEquals(u.getPrenom(), userUpdated.getPrenom());
 	}
 		
 	
