@@ -52,7 +52,7 @@ public class EmployeServiceImplTest {
 	@Test
 	public void testModifyUser() throws ParseException   {
 		
-		Employe u = new Employe("gaied", "mohamed","test@esprit.tn","12345", Role.INGENIEUR); 
+		Employe u = new Employe("ghribi", "rym","modif@esprit.tn","rym01", Role.INGENIEUR); 
 		Employe userUpdated  = us.updateEmploye(u); 
 		assertEquals(u.getNom(), userUpdated.getPrenom());
 	}
