@@ -78,7 +78,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		}
 		return employes;
 	}
-
+//get employe
 	@Override
 	public Employe getEmployeeById(int employeId) {
 		l.debug("methode getEmployeById ");
