@@ -82,7 +82,6 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Override
 	public Employe getEmployeeById(int employeId) {
 		l.debug("methode getEmployeById ");
-		
 			Employe et= emRepo.findById(employeId).orElse(null);
 			l.debug("getEmployeById fini avec succes ");
 			return et;
