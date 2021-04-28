@@ -46,13 +46,32 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	@Override
-	public Employe updateEmploye(Employe em) {
-		l.info("In  addEmploye : " + em);
+	public Employe updateEmployeById(int employeId, Employe e)
+	{
+		l.debug("methode updateEmployeById ");
+	
+		Employe employe = emRepo.findById(employeId).orElse(null);
+		employe.setNom(e.getNom());
+		employe.setPrenom(e.getPrenom());
+		employe.setEmail(e.getEmail());
+		employe.setPassword(e.getPassword());
+		employe.setRole(e.getRole());
 		
+		l.debug("methode updateEmployeById finie avec succés ");		
+		return emRepo.save(employe);
 		
-		l.info("Out of  addEmploye. ");
-		return emRepo.save(em);
 	}
+	
+	
+	
+	//@Override
+	//public Employe updateEmploye(Employe em) {
+	//	l.info("In  addEmploye : " + em);
+		
+		
+	//	l.info("Out of  addEmploye. ");
+	//return emRepo.save(em);
+	//}
 
 	@Override
 	public Employe addEmploye(Employe em) {

@@ -30,8 +30,8 @@ public class EmployeServiceImplTest {
 	
 	@Test
 	public void testGetEmployeById() {
-		Employe e =us.getEmployeeById(8); 
-		assertEquals(8, e.getId());
+		Employe e =us.getEmployeeById(20); 
+		assertEquals(20, e.getId());
 	}
 	
 	@Test
@@ -61,15 +61,24 @@ public class EmployeServiceImplTest {
 		assertEquals(16, listEmployes.size());
 	}
 
+	//@Test
+	//public void testModifyUser() throws ParseException   {
+		
+		//Employe u = new Employe("ghribi", "farah","modif@esprit.tn","rym01", Role.INGENIEUR); 
+	     // int i = us.updateEmployeById(1);
+	     // Employe userUpdated  = us.updateEmploye(1); 
+		//assertEquals(u.getPrenom(), userUpdated.getPrenom());
+	//}
+		
 	@Test
-	public void testModifyUser() throws ParseException   {
-		
-		Employe u = new Employe("ghribi", "rym","modif@esprit.tn","rym01", Role.INGENIEUR); 
-		Employe userUpdated  = us.updateEmploye(u); 
-		assertEquals(u.getPrenom(), userUpdated.getPrenom());
+	public void testModifyUser()
+	{
+
+		Employe u = new Employe("najai", "mariem","modif@esprit.tn","mariem1", Role.CHEF_DEPARTEMENT); 
+	    
+	      Employe userUpdated  = us.updateEmployeById(23,u); 
+	      assertEquals(u.getNom(),userUpdated.getNom());
 	}
-		
-	
 }
     
 

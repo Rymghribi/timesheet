@@ -15,8 +15,9 @@ public interface IEmployeService {
 	
 	
 	public Employe getEmployeeById(int employeId);
+	public Employe updateEmployeById(int employeId, Employe e);
 	public int deleteEmployeById(int employeId);
-	 public Employe updateEmploye(Employe em);
+	// public Employe updateEmploye(Employe em);
 	 public Employe addEmploye(Employe em);
 	 public List<Employe> retrieveAllEmployes();
 	 
